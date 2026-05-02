@@ -9,7 +9,6 @@ jobs:
 build:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout code
     uses: actions/checkout@v3
@@ -35,4 +34,3 @@ steps:
   - name: Build Quiz Service
     working-directory: quiz-ms
     run: ./mvnw clean install
-```
