@@ -20,6 +20,48 @@ steps:
       distribution: 'temurin'
       java-version: '17'
 
+  - name: Build Eureka Server
+    run: |
+      cd eureka-server
+      mvn clean install
+
+  - name: Build Gateway Service
+    run: |
+      cd gateway-ms
+      mvn clean install
+
+  - name: Build Question Service
+    run: |
+      cd question-ms
+      mvn clean install
+
+  - name: Build Quiz Service
+    run: |
+      cd quiz-ms
+      mvn clean install
+```
+name: Build Project
+
+on:
+push:
+branches:
+- main
+
+jobs:
+build:
+runs-on: ubuntu-latest
+
+```
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v3
+
+  - name: Set up Java
+    uses: actions/setup-java@v3
+    with:
+      distribution: 'temurin'
+      java-version: '17'
+
   - name: Build All Services
     run: |
       cd eureka-server && mvn clean install
