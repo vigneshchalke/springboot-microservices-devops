@@ -40,33 +40,3 @@ steps:
       cd quiz-ms
       mvn clean install
 ```
-name: Build Project
-
-on:
-push:
-branches:
-- main
-
-jobs:
-build:
-runs-on: ubuntu-latest
-
-```
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v3
-
-  - name: Set up Java
-    uses: actions/setup-java@v3
-    with:
-      distribution: 'temurin'
-      java-version: '17'
-
-  - name: Build All Services
-    run: |
-      cd eureka-server && mvn clean install
-      cd ../gateway-ms && mvn clean install
-      cd ../question-ms && mvn clean install
-      cd ../quiz-ms && mvn clean install
-```
-
