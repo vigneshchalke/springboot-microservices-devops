@@ -17,4 +17,17 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - run: echo "CI is working"
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y maven
+
+      - name: Build Eureka
+        run: mvn -f eureka-server/pom.xml clean install
+
+      - name: Build Gateway
+        run: mvn -f gateway-ms/pom.xml clean install
+
+      - name: Build Question
+        run: mvn -f question-ms/pom.xml clean install
+
+      - name: Build Quiz
+        run: mvn -f quiz-ms/pom.xml clean install
