@@ -39,4 +39,3 @@ steps:
     run: |
       cd quiz-ms
       mvn clean install
-```
